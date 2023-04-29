@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+
+{%block title%}
+Your local cabinet
+{%endblock%}
+
+{%block Home%} "nav-link"{%endblock%}
+{%block About%} "nav-link" {%endblock%}
+{%block Assortment%} "nav-link" {%endblock%}
+{%block User%} "nav-link active" {%endblock%}
+{%block Article%} "nav-link" {%endblock%}
+{%block Posts%} "nav-link" {%endblock%}
+
+{%block body%}
+<div class="container mt-5">
+    <h1>Информация о пользователе:</h1>
+    <h2>Имя: {{name}}</h2>
+    <a href = "/exit">Выход</a>
+</div>
+{%endblock%}

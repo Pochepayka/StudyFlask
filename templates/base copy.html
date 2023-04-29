@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name=""
+          content="">
+    <!--<meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+    <link rel="stylesheet" href = "{{url_for('static', filename='css/main.css')}}">
+    <title id="title"></title>
+
+</head>
+<body>
+    <article id="background"></article>
+    <article id="allBlocks">
+        <header>
+
+            <a href="#" onclick="DivVisible(document.getElementById('home'))">
+              <div>
+                <img src="static/image/logo.jpg" width="40%" height="40%" alt="">
+              </div>
+            </a>
+
+            <ul>
+              <li><a href="#" class="href" onclick="DivVisible(document.getElementById('assortment'))">Ассортимент</a></li>
+              <li><a href="#" class="href" onclick="DivVisible(document.getElementById('createOrder'))">Заказать</a></li>
+              <li><a href="#" class="href" onclick="DivVisible(document.getElementById('orders'))">Список заказов</a></li>
+              <li><a href="#" class="href" onclick="DivVisible(document.getElementById('contact'))">Контакты</a></li>
+              <li><a href="#" class="href" onclick="DivVisible(document.getElementById('user'))">Пользователь</a></li>
+            </ul><br><br>
+
+        </header>
+
+        <div id="home" style="display:block" class="mainBlock">
+            <img src="static/image/womanWithTee.jpg">
+            <p>Ikar Store - душевная атмосфера,<br> товары отличного качеста,
+                вкусные цены и <br>индивидуальный подход к каждому клиенту!<br><br>
+                Хочется провести вечер за любимым <br> сериалом,но чего-то не хватает?<br><br>
+                Мы знаем, что тебе нужно! Заходи и выбирай!<br>
+                Наши товары сделают твой вечер еще более уютным!  </p>
+        </div>
+        <div id="assortment" style="display:none" >
+            <p>Товары</p>
+            <div class="blockProduct">
+                <p>Шоколад</p>
+                <img src="static/image/chocoMain.jpg" width="90%">
+                <input type="button" class="button" value="Подробнее.." onclick="DivVisible(document.getElementById('detailedChoco'))">
+            </div>
+
+            <div class="blockProduct">
+                <p>Мармелад</p>
+                <img src="static/image/marmaladeMain.jpg" width="90%">
+                <input type="button" class="button" value="Подробнее.." onclick="DivVisible(document.getElementById('detailedMarmalade'))">
+            </div>
+
+            <div class="blockProduct">
+                <p>Варенье</p>
+                <img src="static/image/jamMain.jpg" width="90%">
+                <input type="button" class="button" value="Подробнее.." onclick="DivVisible(document.getElementById('detailedJam'))">
+            </div>
+
+            <div class="blockProduct">
+                <p>Пледы</p>
+                <img src="static/image/blanketMain.jpg" width="90%">
+                <input type="button" class="button" value="Подробнее.." onclick="DivVisible(document.getElementById('detailedBlanket'))">
+            </div>
+
+            <div class="blockProduct">
+                <p>Чизкейки</p>
+                <img src="static/image/cakeMain.jpg" width="90%">
+                <input type="button" class="button" value="Подробнее.." onclick="DivVisible(document.getElementById('detailedCake'))">
+            </div>
+
+        </div>
+
+        <div id="createOrder" style="display:none" class="mainBlock">
+             <p>Оформление заказа</p>
+            <form action="" method="post" name="test" id="form">
+                <label for="name">Имя:</label><br>
+                <input type="name" name="name" id="name" placeholder="Введите имя.."><br><br>
+                <label for="contactForColl">Контактные данные (телефон, Email, VK):</label><br>
+                <input type="email" name="email" id="contactForColl" placeholder="Введите почту.."><br><br>
+                <label for="nameProduct">Наименование товара:</label><br>
+                <select name="nameProduct" id="nameProduct" value="">
+                    <option>Шоколад Орео 1 кг</option>
+                    <option>Мармелад 0.5 кг</option>
+                    <option>Чизкейк Клубника</option>
+                    <option>Плед</option>
+                    <option>Подарочный набор</option>
+                </select><br><br>
+                <label for="countProduct">Количество товара:</label><br>
+                <select name="nameProduct" id="countProduct">
+                    <option>1шт</option>
+                    <option>2шт</option>
+                    <option>3шт</option>
+                    <option>4шт</option>
+                </select><br><br>
+
+                <input type="button" name="button" id="buttonCreateOrder" class="button"  value="Готово"
+                       onclick="FormProcessing(document.getElementById('form'))">
+             </form>
+        </div>
+
+
+        <div id="orders" style="display:none" class="mainBlock">
+             <p>Заказы</p>
+            <h1>Все статьи на сайте:</h1>
+            {%if articles|length >0%}
+            {% for el in articles%}
+            <div class="alert alert-info">
+                <h2>{{el.title}}</h2>
+                <h3>{{el.intro}}</h3>
+                <p><b>Дата: {{el.date.date()}}</b></p>
+                <a href="/posts/{{el.id}}" class="btn btn-warning">Детальнее</a>
+            </div>
+            {%endfor%}
+            {%else%}
+            <h2>У вас пока нет ни одной статьи!(</h2>
+            {%endif%}
+        </div>
+
+
+        <div id="contact" style="display:none" class="mainBlock">
+            <p>Как нас найти:</p>
+            <img src="static/image/map.jpg" width="700" height="">
+            <p>ул.Дубосековская д.13, Москва</p>
+            <p>
+                <img src="static/image/metroRed.jpg" width="30" height="">
+                Стрешнево
+                <a href="https://yandex.ru/maps/213/moscow/?ll=37.492779%2C55.812048&mode=routes&rtext=55.812676%2C37.488070~55.812465%2C37.497488&rtt=pd&ruri=~&z=13.43"
+                   class="nav-link px-2 text-muted">
+                    880м
+                </a>
+            </p>
+            <p>
+                <img src="static/image/metroGreen.jpg" width="30" height="">
+                Войковская
+                <a href="https://yandex.ru/maps/213/moscow/?ll=37.499450%2C55.815173&mode=routes&rtext=55.817880%2C37.498197~55.812465%2C37.497488&rtt=pd&ruri=~&z=14.64"
+                   class="nav-link px-2 text-muted">
+                    930м
+                </a>
+            </p>
+            <p> <img src="static/image/metroGreen.jpg" width="30" height="">
+                Сокол
+                <a href="https://yandex.ru/maps/213/moscow/?ll=37.505889%2C55.808985&mode=routes&rtext=55.805535%2C37.515040~55.812465%2C37.497488&rtt=pd&ruri=~&z=12.47"
+                   class="nav-link px-2 text-muted">
+                    1.83км
+                </a>
+            </p>
+           <p>С нами можно связаться через <a href="https://vk.com/mai_choco" class="nav-link px-2 text-muted">нашу группу в VK</a></p>
+
+        </div>
+
+
+        <div id="user" style="display:none" class="mainBlock">
+            Профиль
+
+        </div>
+
+
+
+        <footer class="mainBlock">
+            <hr noshade id="line" size="4" color="#D2B48C">
+            <p>© 2023 Company, Inc<br></p>
+        </footer>
+    </article>
+</body>
+    <script src="static/js/script.js"></script>
+    <script type="text/javascript">
+
+    </script>
+</html>

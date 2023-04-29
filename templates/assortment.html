@@ -1,0 +1,44 @@
+{%extends 'base.html'%}
+
+{%block title%}
+Assortment
+{%endblock%}
+
+
+{%block body%}
+
+<div id="assortment" style="display:block" >
+    <p>Товары</p>
+    <div class="blockProduct">
+        <p>Шоколад</p>
+        <img src="static/image/chocoMain.jpg" width="90%">
+        <input type="button" class="button" value="Подробнее.." onclick="DivVisible(document.getElementById('detailedChoco'))">
+    </div>
+
+    <div class="blockProduct">
+        <p>Мармелад</p>
+        <img src="static/image/marmaladeMain.jpg" width="90%">
+        <input type="button" class="button" value="Подробнее.." onclick="DivVisible(document.getElementById('detailedMarmalade'))">
+    </div>
+
+    <div class="blockProduct">
+        <p>Варенье</p>
+        <img src="static/image/jamMain.jpg" width="90%">
+        <input type="button" class="button" value="Подробнее.." onclick="DivVisible(document.getElementById('detailedJam'))">
+    </div>
+
+    <div class="blockProduct">
+        <p>Пледы</p>
+        <img src="static/image/blanketMain.jpg" width="90%">
+        <input type="button" class="button" value="Подробнее.." onclick="DivVisible(document.getElementById('detailedBlanket'))">
+    </div>
+
+    <div class="blockProduct">
+        <p>Чизкейки</p>
+        <img src="static/image/cakeMain.jpg" width="90%">
+        <input type="button" class="button" value="Подробнее.." onclick="DivVisible(document.getElementById('detailedCake'))">
+    </div>
+
+</div>
+
+{%endblock%}
