@@ -6,9 +6,18 @@ Assortment
 
 
 {%block body%}
-
 <div id="assortment" style="display:block" >
+    
     <p>Товары</p>
+    {%for el in products%}
+
+    <div class="blockProduct">
+        <p>{{el.name}}</p>
+        <img src={{el.imgHref}} width="90%">
+        <input type="button" class="button" value="Подробнее.." onclick="DivVisible(document.getElementById('detailedChoco'))">
+    </div>
+
+    {%endfor%}
     <div class="blockProduct">
         <p>Шоколад</p>
         <img src="static/image/chocoMain.jpg" width="90%">

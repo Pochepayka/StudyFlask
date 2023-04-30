@@ -45,7 +45,6 @@ header
     position:relative;
     display:block;
     width:100%;
-    background:;
     float:left;
 }
 header > a
@@ -150,6 +149,7 @@ div.blockProduct > p
 .button
 {
     position:relative;
+    width: 150px;
     display:block;
     font-weight: 450;
     background:#F5DEB3;
@@ -184,7 +184,6 @@ footer>p
     color:#90522D;
 
     text-align: center;
-    background:;
     float:left;
 }
 form{
@@ -210,4 +209,7 @@ form{
     border-radius: 10px;
     margin-right:auto;
     margin-left:auto;
+}
+input {
+    width: 650px;
 }

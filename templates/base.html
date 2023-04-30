@@ -14,18 +14,24 @@
     <article id="allBlocks">
         <header>
 
-            <a href="/home" onclick="DivVisible(document.getElementById('home'))">
+            <a href="/home">
               <div>
-                <img src="static/image/logo.jpg" width="40%" height="40%" alt="logo">
+                <img src="../static/image/logo.jpg" width="40%" height="40%" alt="logo">
               </div>
             </a>
-
+            
             <ul>
-              <li><a href="/assortment" class="href" onclick="DivVisible(document.getElementById('assortment'))">Ассортимент</a></li>
+              
+              {% for el in menu%}
+              <li><a href={{el[1]}} class="href">{{el[0]}}</a></li> <!--onclick="DivVisible(document.getElementById('assortment'))"
+
+              -->
+              {%endfor%}
+              <!--<li><a href="/assortment" class="href" onclick="DivVisible(document.getElementById('assortment'))">Ассортимент</a></li>
               <li><a href="/create-article" class="href" onclick="DivVisible(document.getElementById('createOrder'))">Заказать</a></li>
               <li><a href="/posts" class="href" onclick="DivVisible(document.getElementById('orders'))">Список заказов</a></li>
               <li><a href="/about" class="href" onclick="DivVisible(document.getElementById('contact'))">Контакты</a></li>
-              <li><a href="/login" class="href" onclick="DivVisible(document.getElementById('user'))">Пользователь</a></li>
+              <li><a href="/login" class="href" onclick="DivVisible(document.getElementById('user'))">Пользователь</a></li>-->
             </ul><br><br>
 
         </header>

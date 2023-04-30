@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+
+{%block title%}
+Create
+{%endblock%}
+
+
+
+{%block body%}
+
+<div id="createOrder" style="display:block" class="mainBlock">
+    <p>Создание товара</p>
+   <form action="" method="post" name="test" id="form">
+       <label for="name">Имя:</label><br>
+       <input type="name" name="name" id="nameNewProduct" placeholder="Введите название товара.."><br><br>
+       <label for="price">Цена:</label><br>
+       <input type="text" name="price" id="weight" placeholder="Введите цену товара (руб).."><br><br>
+       <label for="weight">Вес:</label><br>
+       <input type="text" name="weight" id="weight" placeholder="Введите вес товара (грамм).."><br><br>
+       <label for="count">Коллицество товара:</label><br>
+       <input type="text" name="count" id="countNewProduct" placeholder="Введите колличество товара (шт).."><br><br>
+       <input type="submit" name="button" id="buttonCreateOrder" class="button"  value="Готово">
+    </form>
+</div>
+{%endblock%}
